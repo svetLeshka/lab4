@@ -43,8 +43,8 @@ endif
 GCC = gcc -std=c11
 GPP = g++ -std=c++17
 LFLAGS = -Wl,--stack,83886080 -static
-CPPLIBS =  conio2 nuklear bgi gdi32 msimg32 comdlg32 uuid oleaut32 ole32 reflex
-CLIBS =  conio2 nuklear gdi32 msimg32
+CPPLIBS = conio2 bgi gdi32 comdlg32 uuid oleaut32 ole32 reflex
+CLIBS = conio2
 ifneq (,$(strip $(CPPSOURCES) $(LEXSOURCE) $(GRMSOURCE) $(CAIOSOURCES) $(SMSOURCES)))
 CC = $(GPP)
 LIBS = $(CPPLIBS)
@@ -61,9 +61,9 @@ INIT="C:\Program Files (x86)\MinIDE\SciTE/../lib/initansicp.o"
 
 .PHONY : all clean
 
-all: $(TARGET)/_all_.exe
+all: $(TARGET)/program.exe
 
-$(TARGET)/_all_.exe $(OBJS) $(GRMGENER) $(GRMHEADER) $(LEXGENER) $(CAIOGENER) $(SMGENER): | $(TARGET)
+$(TARGET)/program.exe $(OBJS) $(GRMGENER) $(GRMHEADER) $(LEXGENER) $(CAIOGENER) $(SMGENER): | $(TARGET)
 
 $(TARGET):
 	mkdir $(TARGET)
@@ -98,8 +98,8 @@ $(TARGET)/%.o: $(TARGET)/%.cpp $(CPPHEADERS) $(HS)
 $(TARGET)/%.o: %.c $(HS)
 	$(GCC) $(CCFLAGS) $(if $(filter uc%,$<),$(CCCS),) -o $@ -I. -I$(TARGET) -c $<
 
-$(TARGET)/_all_.exe: $(OBJS) Makefile
-	$(CC) $(CCFLAGS) $(LFLAGS) -o $(TARGET)/_all_ $(OBJS) $(INIT) $(addprefix -l,$(LIBS))
+$(TARGET)/program.exe: $(OBJS) Makefile
+	$(CC) $(CCFLAGS) $(LFLAGS) -o $(TARGET)/program $(OBJS) $(INIT) $(addprefix -l,$(LIBS))
 
 $(TARGET)/%.exe: %.lex Makefile
 	$(if $(wildcard $(TARGET)),,mkdir $(TARGET))
