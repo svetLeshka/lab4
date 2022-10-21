@@ -1,4 +1,4 @@
-# Generated Makefile. ГЏГ°ГЁ ГЁГ§Г¬ГҐГ­ГҐГ­ГЁГЁ ГЅГІГ®ГЈГ® ГґГ Г©Г«Г  ГўГ°ГіГ·Г­ГіГѕ ГіГ¤Г Г«ГЁГІГҐ Г¤Г Г­Г­ГіГѕ Г±ГІГ°Г®ГЄГі
+# Generated Makefile. При изменении этого файла вручную удалите данную строку
 
 TARGET = release
 
@@ -43,10 +43,8 @@ endif
 GCC = gcc -std=c11
 GPP = g++ -std=c++17
 LFLAGS = -Wl,--stack,83886080 -static
-
 CPPLIBS =  conio2 nuklear bgi gdi32 msimg32 comdlg32 uuid oleaut32 ole32 reflex
 CLIBS =  conio2 nuklear gdi32 msimg32
-
 ifneq (,$(strip $(CPPSOURCES) $(LEXSOURCE) $(GRMSOURCE) $(CAIOSOURCES) $(SMSOURCES)))
 CC = $(GPP)
 LIBS = $(CPPLIBS)
