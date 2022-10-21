@@ -17,20 +17,20 @@ IMAGE *resize(IMAGE *img, int w, int h)
 
 void house() {
    IMAGE *wall = loadBMP("h.bmp");
-   int arr[8] = {350, 200, 550, 0, 750, 200, 400, 200};
+   int arr[8] = {350, 400, 550, 200, 750, 400, 350, 400};
    setcolor(COLOR(136, 0, 21));
    setfillstyle(SOLID_FILL, COLOR(136, 0, 21));
    IMAGE *wallh = resize(wall, 300, 200);
-   putimage(400, 200, wallh, COPY_PUT);
+   putimage(400, 400, wallh, COPY_PUT);
    fillpoly(4, arr);
    setfillstyle(SOLID_FILL, COLOR(123, 77, 51));
    setcolor( COLOR(123, 77, 51));
-   bar(495, 245, 605, 355);
+   bar(495, 445, 605, 555);
    setfillstyle(SOLID_FILL, COLOR(34, 138, 164));
    setcolor(COLOR(34, 138, 164));
-   bar(500, 250, 600, 350);
+   bar(500, 450, 600, 550);
    setcolor( COLOR(123, 77, 51));
    setlinestyle(SOLID_LINE, 0, 5);
-   line(550, 245, 550, 355);
-   line(495, 300, 605, 300);
+   line(550, 445, 550, 555);
+   line(495, 500, 605, 500);
 }
